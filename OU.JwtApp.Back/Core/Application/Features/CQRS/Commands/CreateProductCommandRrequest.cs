@@ -1,8 +1,9 @@
-﻿namespace OU.JwtApp.Back.Core.Application.Dto
+﻿using MediatR;
+
+namespace OU.JwtApp.Back.Core.Application.Features.CQRS.Commands
 {
-    public class ProductlistDto
+    public class CreateProductCommandRrequest : IRequest
     {
-        public int Id { get; set; }
         public string? Name { get; set; }
         public int Stock { get; set; }
         public decimal Price { get; set; }

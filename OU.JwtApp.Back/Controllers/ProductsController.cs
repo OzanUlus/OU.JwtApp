@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using OU.JwtApp.Back.Core.Application.Features.CQRS.Commands;
 using OU.JwtApp.Back.Core.Application.Features.CQRS.Queries;
 
 namespace OU.JwtApp.Back.Controllers
@@ -29,6 +30,20 @@ namespace OU.JwtApp.Back.Controllers
             var result = await _mediator.Send(new GetProductQueryRequest(id));
 
             return result == null ? NotFound() : Ok(result);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id) 
+        {
+            var result = await _mediator.Send(new DeleteProductCommandRequest(id));
+            return NoContent();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(CreateProductCommandRrequest request) 
+        {
+           var result = await _mediator.Send(request);
+            return Created("", result);
         }
     }
 }
