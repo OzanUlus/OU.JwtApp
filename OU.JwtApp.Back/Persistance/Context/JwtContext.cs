@@ -10,15 +10,19 @@ namespace OU.JwtApp.Back.Persistance.Context
         {
 
         }
-        public DbSet<AppUser> AppUsers { get; set; }
-        public DbSet<AppRole> AppRoles { get; set; }
-        public DbSet<Product> Products { get; set; }
-        public DbSet<Category> Categories { get; set; }
+        public DbSet<AppUser> AppUsers => this.Set<AppUser>();
+       
+        public DbSet<AppRole> AppRoles => this.Set<AppRole>();
+        
+        public DbSet<Product> Products => this.Set<Product>();
+      
+        public DbSet<Category> Categories => this.Set<Category>();
+       
 
         protected override void OnModelCreating(ModelBuilder mb)
         {
             mb.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
-       
+
     }
 }

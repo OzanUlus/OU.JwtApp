@@ -2,19 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OU.JwtApp.Back.Persistance.Context;
 
 #nullable disable
 
-namespace OU.JwtApp.Back.Migrations
+namespace OU.JwtApp.Back.Persistance.Migrations
 {
     [DbContext(typeof(JwtContext))]
-    [Migration("20240402094109_mig_1")]
-    partial class mig_1
+    partial class JwtContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

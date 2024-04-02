@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace OU.JwtApp.Back.Migrations
+namespace OU.JwtApp.Back.Persistance.Migrations
 {
     public partial class mig_1 : Migration
     {
