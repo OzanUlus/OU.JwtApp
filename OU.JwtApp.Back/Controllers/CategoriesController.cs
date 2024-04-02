@@ -18,7 +18,7 @@ namespace OU.JwtApp.Back.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get() 
+        public async Task<IActionResult> GetAll() 
         {
            var result = await _mediator.Send(new GetAllCategoriesQueyRequest());
             return Ok(result);
