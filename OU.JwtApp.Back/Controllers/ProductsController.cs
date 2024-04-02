@@ -45,5 +45,12 @@ namespace OU.JwtApp.Back.Controllers
            var result = await _mediator.Send(request);
             return Created("", result);
         }
+
+        [HttpPut]
+        public async Task<IActionResult> Update(UpdateProductCommandRequest request) 
+        {
+           await _mediator.Send(request);
+            return NoContent();
+        }
     }
 }
