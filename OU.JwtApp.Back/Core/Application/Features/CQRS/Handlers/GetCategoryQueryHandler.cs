@@ -7,7 +7,7 @@ using OU.JwtApp.Back.Core.Domain;
 
 namespace OU.JwtApp.Back.Core.Application.Features.CQRS.Handlers
 {
-    public class GetCategoryQueryHandler : IRequestHandler<GetCategoryQueryRequest, List<CategoryListDto>>
+    public class GetCategoryQueryHandler : IRequestHandler<GetCategoryQueryRequest, CategoryListDto>
     {
         private readonly IRepository<Category> _repository;
         private readonly IMapper _mapper;
@@ -18,10 +18,12 @@ namespace OU.JwtApp.Back.Core.Application.Features.CQRS.Handlers
             _mapper = mapper;
         }
 
-        public async Task<List<CategoryListDto>> Handle(GetCategoryQueryRequest request, CancellationToken cancellationToken)
+
+
+        public async Task<CategoryListDto> Handle(GetCategoryQueryRequest request, CancellationToken cancellationToken)
         {
-          var data =  await _repository.GetByFilterAsync(c => c.Id == request.Id);
-            return _mapper.Map<List<CategoryListDto>>(data);
+            var data = await _repository.GetByFilterAsync(z => z.Id == request.Id);
+            return _mapper.Map<CategoryListDto>(data);
         }
     }
 }
