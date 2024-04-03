@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OU.JwtApp.Back.Core.Application.Features.CQRS.Commands;
 using OU.JwtApp.Back.Core.Application.Features.CQRS.Queries;
+using OU.JwtApp.Back.Infrastructure.Tools;
 
 namespace OU.JwtApp.Back.Controllers
 {
@@ -30,7 +31,7 @@ namespace OU.JwtApp.Back.Controllers
             var dto = await _mediator.Send(request);
             if (dto.IsExist)
             {
-                return Created("", "token oluştur");
+                return Created("", JwtTokenGenerator.GenerateToken(dto));
             }
             else 
             {
